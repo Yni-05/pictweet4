@@ -6,9 +6,7 @@ describe User do
       user.valid?
       expect(user.errors[:nickname]).to include("can't be blank")
     end
-  end
 
-  describe '#create_mailaddress' do
     it "メールアドレスがない場合は登録できないこと" do
       user = User.new(nickname: "aaa", email: "", password: "00000000", password_confirmation: "00000000")
       user.valid?
