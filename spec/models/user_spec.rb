@@ -25,7 +25,7 @@ describe User do
     it "passwordがない場合は登録できないこと" do
       user = build(:user, password: nil)
       user.valid?
-      expect(user.errors[:password].).to include("cant't be blank")
+      expect(user.errors[:password]).to include("cant't be blank")
     end
 
     #5
