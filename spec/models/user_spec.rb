@@ -25,7 +25,7 @@ describe User do
     it "passwordがない場合は登録できないこと" do
       user = build(:user, password: nil)
       user.valid?
-      expect(user.errors[:password]).to include("cant't be blank")
+      expect(user.errors[:password]).to include("can't be blank")
     end
 
     #5
@@ -58,9 +58,9 @@ describe User do
 
     #9
     it "passwordが6文字以上であれば登録できること" do
-      user = build(:user, password: "000000", password_confirmation: "000000")
+      user = build(:user, password: "00000", password_confirmation: "00000")
       user.valid?
-      expect(user.errors[:password]).to include("is too short (minimun is 6 characters)")
+      expect(user.errors[:password]).to include("is too short (minimum is 6 characters)")
     end
   end
 end
