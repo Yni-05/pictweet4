@@ -23,4 +23,17 @@ describe TweetsController, type: :controller do
     end
   end
 
+  describe 'GET #index' do
+    it "@tweetに正しい値が入っていること" do
+      tweets = create_list(:tweet, 3)
+      get :index
+      expect(assigns(:tweets)).to match(tweets.sort{ |a, b| b.created_at <=> a.created_at } )
+    end
+
+    it "index.html.erbに遷移すること" do
+      get :index
+      expect(response).to render_template :index
+    end
+  end
+
 end
