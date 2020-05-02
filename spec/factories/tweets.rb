@@ -3,4 +3,5 @@ FactoryBot.define do
     text {"hello!"}
     image {"hoge.png"}
     user
+  end
 end
