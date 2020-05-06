@@ -70,3 +70,5 @@ gem 'sprockets', '3.7.2'
 gem 'devise'
 gem 'kaminari'
 gem 'pg'
+
+gem 'jquery-rails'
