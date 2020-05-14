@@ -1,4 +1,13 @@
 $(function(){
+  function buildHTML(comment) {
+    var html = `<p>
+                  <strong>
+                    <a href=/users/${comment.user_id}>${comment.user_name}</a>
+                    :
+                  </strong>
+                </p>`
+    return html;
+  }
   $('#new_comment').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -10,6 +19,12 @@ $(function(){
       dataType: 'json',
       processDate: false,
       contentType: false
+    })
+    .done(function(data) {
+      var html = buildHTML(data);
+      $('.comments').append(html);
+      $('.textbox').val('');
+      $('.form__submit').prop('disabled', false);
     })
   })
 })
